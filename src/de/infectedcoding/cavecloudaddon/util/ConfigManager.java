@@ -38,7 +38,10 @@ public class ConfigManager {
 
     private void addDefaults(){
         cfg.options().copyDefaults(true);
-        cfg.options().header("CaveCloudAddon - v"+plugin.getDescription().getVersion());
+        cfg.options().header("CaveCloudAddon - v"+plugin.getDescription().getVersion()+
+        "\n\n"+
+        "GameStates, you can use:\n"+
+        "ONLINE, INGAME, FULL, END, LOBBY");
 
         cfg.addDefault("GameState", "ONLINE");
         cfg.addDefault("MaxPlayers", Bukkit.getMaxPlayers());

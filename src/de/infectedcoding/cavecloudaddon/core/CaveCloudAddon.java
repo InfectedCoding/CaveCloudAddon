@@ -26,6 +26,9 @@ public class CaveCloudAddon extends JavaPlugin {
 
         /*
         CAVECLOUD API
+
+        GameStats, you can use:
+        ONLINE, FULL, INGAME, END, LOBBY
          */
         CaveCloud.gameAPI
                 .setGameState(Gamestate.ONLINE)
