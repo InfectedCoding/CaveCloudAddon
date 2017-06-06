@@ -1,0 +1,5 @@
+name: CaveCloudAddon
+version: 1.0
+author: InfectedCoding
+main: de.infectedcoding.cavecloudaddon.core.CaveCloudAddon
+commands:
