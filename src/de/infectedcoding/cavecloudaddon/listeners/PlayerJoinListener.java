@@ -24,7 +24,7 @@ public class PlayerJoinListener implements Listener {
         /*
         CAVECLOUD API
          */
-        CaveCloud.getGameAPI()
+        CaveCloud.gameAPI
                 .setPlayers(Bukkit.getOnlinePlayers().size())
                 .update();
     }

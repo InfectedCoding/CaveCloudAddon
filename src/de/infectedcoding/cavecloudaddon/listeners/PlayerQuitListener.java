@@ -24,7 +24,7 @@ public class PlayerQuitListener implements Listener {
         /*
         CAVECLOUD API
          */
-        CaveCloud.getGameAPI()
+        CaveCloud.gameAPI
                 .setPlayers(Bukkit.getOnlinePlayers().size()-1)
                 .update();
     }

@@ -4,7 +4,7 @@ import de.infectedcoding.cavecloudaddon.listeners.PlayerJoinListener;
 import de.infectedcoding.cavecloudaddon.listeners.PlayerQuitListener;
 import de.infectedcoding.cavecloudaddon.util.ConfigManager;
 import net.cavefire.cavecloud.bukkit.CaveCloud;
-import net.cavefire.cavecloud.bukkit.signs.GameState;
+import net.cavefire.cavecloud.bukkit.api.Gamestate;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -27,8 +27,8 @@ public class CaveCloudAddon extends JavaPlugin {
         /*
         CAVECLOUD API
          */
-        CaveCloud.getGameAPI()
-                .setGameState(GameState.ONLINE)
+        CaveCloud.gameAPI
+                .setGameState(Gamestate.ONLINE)
                 .setPlayers(0)
                 .setMaxplayers(configManager.getMaxPlayers())
                 .setMotd(configManager.getMOTD())
