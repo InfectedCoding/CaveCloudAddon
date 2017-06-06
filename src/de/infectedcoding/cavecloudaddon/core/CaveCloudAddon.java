@@ -4,6 +4,7 @@ import de.infectedcoding.cavecloudaddon.listeners.PlayerJoinListener;
 import de.infectedcoding.cavecloudaddon.listeners.PlayerQuitListener;
 import de.infectedcoding.cavecloudaddon.util.ConfigManager;
 import net.cavefire.cavecloud.bukkit.CaveCloud;
+import net.cavefire.cavecloud.bukkit.api.GameAPI;
 import net.cavefire.cavecloud.bukkit.api.Gamestate;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -25,13 +26,32 @@ public class CaveCloudAddon extends JavaPlugin {
         configManager = new ConfigManager(this);
 
         /*
+        Read gamestate from config.yml
+         */
+        Gamestate gamestate = Gamestate.ONLINE;
+        String gamestateString = configManager.getGameState();
+
+        if(gamestateString.equalsIgnoreCase("ONLINE")){
+            gamestate = Gamestate.ONLINE;
+        } else if(gamestateString.equalsIgnoreCase("FULL")){
+            gamestate = Gamestate.FULL;
+        } else if(gamestateString.equalsIgnoreCase("INGAME")){
+            gamestate = Gamestate.INGAME;
+        } else if(gamestateString.equalsIgnoreCase("END")){
+            gamestate = Gamestate.END;
+        } else if(gamestateString.equalsIgnoreCase("LOBBY")){
+            gamestate = Gamestate.LOBBY;
+        }
+
+
+        /*
         CAVECLOUD API
 
         GameStats, you can use:
         ONLINE, FULL, INGAME, END, LOBBY
          */
         CaveCloud.gameAPI
-                .setGameState(Gamestate.ONLINE)
+                .setGameState(gamestate)
                 .setPlayers(0)
                 .setMaxplayers(configManager.getMaxPlayers())
                 .setMotd(configManager.getMOTD())
